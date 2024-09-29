@@ -5,6 +5,7 @@ import {
   updateUsers,
   usres,
   ranking,
+  updateScoreUser,
 } from "@functions/index";
 import type { AWS } from "@serverless/typescript";
 import * as dotenv from "dotenv";
@@ -55,6 +56,7 @@ const serverlessConfiguration: AWS = {
     updateUsers,
     usres,
     ranking,
+    updateScoreUser,
   },
   package: { individually: true, include: ["src/**/*.sql"] },
   custom: {
