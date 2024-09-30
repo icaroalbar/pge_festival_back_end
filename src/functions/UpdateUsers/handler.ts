@@ -1,8 +1,8 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
-import { UpdateUserRepository } from "@services/updateUsers/updateUser.repository";
-import { UpdateUserUseCase } from "@services/updateUsers/updateUser.useCase";
-import { InputUpdateUser } from "@services/updateUsers/updateUsers.dto";
+import { UpdateUserRepository } from "@services/UpdateUsers/updateUser.repository";
+import { UpdateUserUseCase } from "@services/UpdateUsers/updateUser.useCase";
+import { InputUpdateUser } from "@services/UpdateUsers/updateUsers.dto";
 
 const handler = async (event) => {
   const input = event.body as InputUpdateUser;

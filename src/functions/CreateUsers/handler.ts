@@ -1,8 +1,8 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
-import { InputCreateUser } from "@services/createUsers/createUsers.dto";
-import { CreateUserRepository } from "@services/createUsers/createUsers.repository";
-import { CreateUserUseCase } from "@services/createUsers/createUsers.usecase";
+import { InputCreateUser } from "@services/CreateUsers/createUsers.dto";
+import { CreateUserRepository } from "@services/CreateUsers/createUsers.repository";
+import { CreateUserUseCase } from "@services/CreateUsers/createUsers.usecase";
 
 const handler = async (event) => {
   const input = event.body as InputCreateUser;

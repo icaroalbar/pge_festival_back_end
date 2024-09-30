@@ -3,7 +3,7 @@ import {
   responses,
   createUsers,
   updateUsers,
-  usres,
+  users,
   ranking,
   updateScoreUser,
 } from "@functions/index";
@@ -54,7 +54,7 @@ const serverlessConfiguration: AWS = {
     responses,
     createUsers,
     updateUsers,
-    usres,
+    users,
     ranking,
     updateScoreUser,
   },

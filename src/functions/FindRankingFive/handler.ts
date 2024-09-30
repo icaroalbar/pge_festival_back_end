@@ -1,8 +1,8 @@
 import { formatJSONResponse } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
-import { InputFindRankingFive } from "@services/findRankingFive/findRankingFive.dto";
-import { FindRankingFiveRepository } from "@services/findRankingFive/findRankingFive.repository";
-import { FindRankingFiveUseCase } from "@services/findRankingFive/findRankingFive.useCase";
+import { InputFindRankingFive } from "@services/FindRankingFive/findRankingFive.dto";
+import { FindRankingFiveRepository } from "@services/FindRankingFive/findRankingFive.repository";
+import { FindRankingFiveUseCase } from "@services/FindRankingFive/findRankingFive.useCase";
 
 const handler = async (event) => {
   const input = event.pathParameters.id as InputFindRankingFive;

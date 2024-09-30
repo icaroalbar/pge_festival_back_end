@@ -10,7 +10,7 @@ export class UpdateScoreUserRepository {
         `UPDATE users
           SET
             score = COALESCE(NULLIF(?, ''), score),
-            lastQuestion = COALESCE(NULLIF(?, ''), lastQuestion)
+            lastQuestion = COALESCE(NULLIF(?, ''), lastQuestion),
             timer = COALESCE(NULLIF(?, ''), timer)
           WHERE id = ?`,
         [score, lastQuestion, timer, id],

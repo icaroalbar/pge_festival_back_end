@@ -7,9 +7,9 @@ export class CreateUserRepository {
 
     return new Promise((resolve, reject) => {
       db.query(
-        `INSERT INTO users (email, senha, primeiroNome, ultimoNome, setor, score, lastQuestion) 
+        `INSERT INTO users (email, senha, primeiroNome, ultimoNome, setor, score, lastQuestion, timer) 
          VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [email, senha, primeiroNome, ultimoNome, setor, 0, 1],
+        [email, senha, primeiroNome, ultimoNome, setor, 0, 1, 30],
         (err) => {
           if (err) {
             console.error("Erro ao criar usuário:", err);
