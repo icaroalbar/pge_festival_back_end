@@ -3,7 +3,7 @@ import { InputUpdateScoreUser } from "./updateScoreUser.dto";
 
 export class UpdateScoreUserRepository {
   async update(input: InputUpdateScoreUser): Promise<void> {
-    const { id, score, lastQuestion } = input as InputUpdateScoreUser;
+    const { id, score, lastQuestion, timer } = input as InputUpdateScoreUser;
 
     return new Promise((resolve, reject) => {
       db.query(
@@ -11,8 +11,9 @@ export class UpdateScoreUserRepository {
           SET
             score = COALESCE(NULLIF(?, ''), score),
             lastQuestion = COALESCE(NULLIF(?, ''), lastQuestion)
+            timer = COALESCE(NULLIF(?, ''), timer)
           WHERE id = ?`,
-        [score, lastQuestion, id],
+        [score, lastQuestion, timer, id],
 
         (err, results) => {
           if (err) {
