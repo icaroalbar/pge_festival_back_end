@@ -5,3 +5,5 @@ export { default as users } from "./Users";
 export { default as updateUsers } from "./UpdateUsers";
 export { default as ranking } from "./FindRankingFive";
 export { default as updateScoreUser } from "./UpdateScoreUser";
+export { default as newPasswordUsers } from "./NewPasswordUsers";
+export { default as sendEmailForgotPassword } from "./SendEmailForgotPassword";
