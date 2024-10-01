@@ -4,9 +4,9 @@ import { SendEmailForgotPassword } from "./sendEmailForgotPassword.dto";
 export class SendEmailForgotPasswordRepository {
   async send(input: SendEmailForgotPassword): Promise<void> {
     await transporter.sendMail({
-      from: '"Suporte PG Gamres" <dsm.deborah@gmail.com>',
+      from: '"Suporte PGamres" <moreirasd@pge.rj.gov.br>',
       to: input.email,
-      subject: "Recuperação de senha PG Games",
+      subject: "Recuperação de senha PGames",
       text: `https://pge-festival.vercel.app/newPassword?email=${input.email}`,
       html: `<p>
               Para criar sua nova senha${" "}
