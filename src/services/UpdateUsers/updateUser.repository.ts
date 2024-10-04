@@ -2,10 +2,11 @@ import { db } from "@libs/database";
 import { InputUpdateUser } from "./updateUsers.dto";
 
 export class UpdateUserRepository {
-  async update(input: InputUpdateUser): Promise<void> {
+  async update(input: InputUpdateUser): Promise<string | null> {
     const { setor, primeiroNome, ultimoNome, id } = input as InputUpdateUser;
 
     return new Promise((resolve, reject) => {
+      // Atualiza o usuário
       db.query(
         `UPDATE users
           SET
@@ -17,15 +18,36 @@ export class UpdateUserRepository {
 
         (err, results) => {
           if (err) {
-            console.error("Erro ao buscar usuários:", err);
+            console.error("Erro ao atualizar usuário:", err);
             return reject(err);
           }
 
-          if (results.length === 0) {
-            return reject(new Error("Usuário ou senha incorreta."));
+          // Verifica se a atualização foi bem-sucedida
+          if (results.affectedRows === 0) {
+            return reject(
+              new Error("Usuário não encontrado ou nenhum campo atualizado.")
+            );
           }
 
-          resolve(results);
+          // Consulta o e-mail do usuário atualizado
+          db.query(
+            `SELECT email FROM users WHERE id = ?;`,
+            [id],
+            (err, results) => {
+              if (err) {
+                console.error("Erro ao buscar e-mail do usuário:", err);
+                return reject(err);
+              }
+
+              // Verifica se o usuário foi encontrado
+              if (results.length === 0) {
+                return resolve(null); // ou você pode rejeitar a promessa, dependendo do seu caso de uso
+              }
+
+              // Retorna o e-mail do usuário
+              resolve(results[0].email);
+            }
+          );
         }
       );
     });

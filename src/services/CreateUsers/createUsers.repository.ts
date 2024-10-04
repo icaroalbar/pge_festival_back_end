@@ -8,7 +8,7 @@ export class CreateUserRepository {
     return new Promise((resolve, reject) => {
       db.query(
         `INSERT INTO users (email, senha, primeiroNome, ultimoNome, setor, score, lastQuestion, timer) 
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         [email, senha, primeiroNome, ultimoNome, setor, 0, 1, 30],
         (err) => {
           if (err) {

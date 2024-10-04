@@ -31,6 +31,7 @@ const serverlessConfiguration: AWS = {
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
+      binaryMediaTypes: ["*/*"],
     },
     deploymentBucket: {
       name: `${apiName}-bucket`,
