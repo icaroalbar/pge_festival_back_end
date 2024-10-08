@@ -7,3 +7,4 @@ export { default as ranking } from "./FindRankingFive";
 export { default as updateScoreUser } from "./UpdateScoreUser";
 export { default as newPasswordUsers } from "./NewPasswordUsers";
 export { default as sendEmailForgotPassword } from "./SendEmailForgotPassword";
+export { default as uploadImagesQuestions } from "./UploadImagesQuestion";

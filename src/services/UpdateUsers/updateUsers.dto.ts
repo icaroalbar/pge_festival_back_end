@@ -4,5 +4,5 @@ export interface InputUpdateUser {
   primeiroNome: string;
   ultimoNome: string;
   setor: string;
-  files: { content: Buffer; filename: string; contentType: string }[];
+  files?: { content: Buffer; filename: string; contentType: string }[];
 }
